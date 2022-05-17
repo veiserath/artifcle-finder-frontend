@@ -12,6 +12,24 @@ import { Route, Routes, BrowserRouter } from "react-router-dom";
 function App() {
 
     const Home = () => {
+        const [references, setReferencesValue] = useState(false);
+        const [URL, setURLValue] = useState('');
+
+
+        const handleRadioButtonChange = () => {
+            setReferencesValue(!references);
+        }
+
+        const onURLChangeHandler = event => {
+            setURLValue(event.target.value);
+        };
+
+        const handleSearchInitiated = async () => {
+            console.log("search initiated")
+            console.log(references)
+            console.log(URL)
+        }
+
         return (
             <div className="container">
                 <URLForm
@@ -30,36 +48,14 @@ function App() {
         );
     };
 
-    const [references, setReferencesValue] = useState(false);
-    const [URL, setURLValue] = useState('');
-    
-    
-    const handleRadioButtonChange = () => {
-        setReferencesValue(!references);
-    }
 
-    const onURLChangeHandler = event => {
-        setURLValue(event.target.value);
-    };
-
-    useEffect(() => {
-      }, [])
-
-    const handleSearchInitiated = async() => {
-        console.log("search initiated")
-        console.log(references)
-        console.log(URL)
-    }
 
     return (
         <BrowserRouter>
-                <Routes>
-                    <Route index path='/' element={<Home/>} > </Route>
-                    <Route path='/tree' element={<OrgChartTree />} />
-
-                </Routes>
-
-            
+            <Routes>
+                <Route index path='/' element={<Home />} > </Route>
+                <Route path='/tree' element={<OrgChartTree />} />
+            </Routes>
         </BrowserRouter>
 
 

@@ -3,9 +3,6 @@ import { useEffect, useState } from 'react';
 import Tree from 'react-d3-tree';
 import { Link } from 'react-router-dom';
 
-// This is a simplified example of an org chart with a depth of 2.
-// Note how deeper levels are defined recursively via the `children` property.
-
 
 export default function OrgChartTree() {
     const [data, setData] = useState(null);
@@ -39,8 +36,8 @@ export default function OrgChartTree() {
 
     return data && (
         // `<Tree />` will fill width/height of its container; in this case `#treeWrapper`.
-            <div id="treeWrapper" style={{ width: '1500px', height: '1500px' }}>
-                <Tree data={data} />
+            <div id="treeWrapper" style={{ width: '1500px', height: '1500px'}}>
+                <Tree orientation='horizontal' data={data} />
                 <Link to='/'>Go back</Link>
             </div>
 
