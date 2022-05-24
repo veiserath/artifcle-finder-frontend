@@ -2,9 +2,10 @@ import React from 'react'
 import Button from '@mui/material/Button';
 
 
-const SearchButton = ( {onClick} ) => {
+const SearchButton = ( {onClick, url} ) => {
+  const encodedString = Buffer.from(url).toString('base64');
   return (
-    <Button href='/tree' variant="contained" onClick={onClick}>Start Search</Button>
+    <Button href={`/tree/${encodedString}`} variant="contained" onClick={onClick}>Start Search</Button>
   )
 }
 

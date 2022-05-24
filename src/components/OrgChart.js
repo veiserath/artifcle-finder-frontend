@@ -1,20 +1,26 @@
 import React from 'react'
 import { useEffect, useState } from 'react';
 import Tree from 'react-d3-tree';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 
 export default function OrgChartTree() {
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const {url} = useParams()
 
     useEffect(() => {
         const getData = async () => {
           try {
+            // const response = await fetch(
+            //   `https://mocki.io/v1/a0e4aced-9317-49d0-aab4-e05ce884ecb2`
+            // );
+            
+            console.log(url)
             const response = await fetch(
-              `https://mocki.io/v1/a0e4aced-9317-49d0-aab4-e05ce884ecb2`
-            );
+                `http://localhost:8000/polls/${url}/`
+              );
             if (!response.ok) {
               throw new Error(
                 `This is an HTTP error: The status is ${response.status}`
@@ -32,7 +38,7 @@ export default function OrgChartTree() {
           }  
         }
         getData()
-      }, [])
+      }, [url])
 
     return data && (
         // `<Tree />` will fill width/height of its container; in this case `#treeWrapper`.

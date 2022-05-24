@@ -1,18 +1,3 @@
-// import React from 'react'
-
-// const RadioButton = ({ label, value, onChange }) => {
-//   return (
-//     <label>
-//       <input type="radio" checked={value} onChange={onChange} />
-//       {label}
-//     </label>
-//   );
-// };
-
-// export default RadioButton
-
-
-
 import React from 'react'
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
@@ -23,7 +8,7 @@ import FormLabel from '@mui/material/FormLabel';
 export const RadioButton = ({value, onChange}) => {
   return (
     <FormControl>
-      <FormLabel id="demo-radio-buttons-group-label">Ranking</FormLabel>
+      <FormLabel id="demo-radio-buttons-group-label">Rank by:</FormLabel>
       <RadioGroup
         aria-labelledby="demo-radio-buttons-group-label"
         name="radio-buttons-group">
