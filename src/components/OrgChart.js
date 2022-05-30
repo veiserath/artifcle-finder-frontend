@@ -13,10 +13,6 @@ export default function OrgChartTree() {
     useEffect(() => {
         const getData = async () => {
           try {
-            // const response = await fetch(
-            //   `https://mocki.io/v1/a0e4aced-9317-49d0-aab4-e05ce884ecb2`
-            // );
-            
             console.log(url)
             const response = await fetch(
                 `http://localhost:8000/polls/${url}/`
